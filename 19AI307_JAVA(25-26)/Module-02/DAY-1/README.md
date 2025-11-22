@@ -64,3 +64,4 @@ public class Main {
 Thus, a Java program to create a class Vehicle with attributes number, type, and owner was successfully implemented and executed.
 
 
+
