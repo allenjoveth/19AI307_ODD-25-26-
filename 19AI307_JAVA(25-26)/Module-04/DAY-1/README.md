@@ -1,28 +1,29 @@
-# Ex.No:4(D) DESIGN PATTERN -- ABSTRACT FACTORY
+# Ex.No:4(A) EXCEPTION HANDLING
 
 ## QUESTION:
-Create a program that sends different types of notifications: "email", "sms", and "push". Use the Factory Pattern to generate the appropriate notification sender and call its notifyUser() method.
+If an Integer object is set to null, and you attempt to call .toString() on it, what happens? How can you prevent your code from throwing an exception in such cases?
 
 ## AIM:
-To implement the Factory Design Pattern to send different types of notifications — Email, SMS, and Push.
+To write a Java program that demonstrates how a NullPointerException occurs when accessing methods on a null Integer object, and how to handle it using a try–catch block.
 
 ## ALGORITHM :
-1.	Create a Notification interface with the method notifyUser().
-2.	Implement this interface in classes EmailNotification, SMSNotification, and PushNotification.
-3.	Create a NotificationFactory class to generate objects based on input type.
-4.	In main(), read the notification type and get the corresponding object from the factory.
-5.	Call the notifyUser() method to send the notification.
-
-
-
-
+1. Start the program.
+2. Create a Scanner object to read an integer input from the user.
+3. Read an integer value input.
+4. If the input is 0, assign null to the Integer object num; otherwise assign the input value.
+5. Use a try block to call num.toString():
+   - If num is not null, print its string representation.
+   - If num is null, a NullPointerException will be thrown.
+6. Catch the NullPointerException and print "Null Integer".
+7. Close the scanner.
+8. End the program.
 
 ## PROGRAM:
- ```
+  ```
 /*
-Program to implement a Abstract Factory Pattern using Java
+Program to implement a conditional statement using Java
 Developed by: ALLEN JOVETH P
-RegisterNumber: 212223240007
+RegisterNumber:  212223240007
 */
 ```
 
@@ -30,70 +31,32 @@ RegisterNumber: 212223240007
 ```
 import java.util.Scanner;
 
-// Notification interface
-interface Notification {
-    void notifyUser();
-}
-
-// Concrete notifications
-class EmailNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending Email Notification");
-    }
-}
-
-class SMSNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending SMS Notification");
-    }
-}
-
-class PushNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending Push Notification");
-    }
-}
-
-// Factory class
-class NotificationFactory {
-    public Notification createNotification(String type) {
-        switch(type.toLowerCase()) {
-            case "email": return new EmailNotification();
-            case "sms": return new SMSNotification();
-            case "push": return new PushNotification();
-            default: return null;
-        }
-    }
-}
-
-// Main class
-public class Main {
+public class NullPointerIntegerExample {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        NotificationFactory factory = new NotificationFactory();
-        
-        while(true) {
-            String input = sc.nextLine();
-            if(input.equalsIgnoreCase("exit")) break;
 
-            Notification notification = factory.createNotification(input);
-            if(notification != null) {
-                notification.notifyUser();
-            } else {
-                System.out.println("Invalid notification type: " + input);
-            }
+        int input = sc.nextInt();
+        Integer num = (input == 0) ? null : input;
+
+        try {
+            System.out.println(num.toString());
+        } catch (NullPointerException e) {
+            System.out.println("Null Integer");
         }
 
         sc.close();
     }
 }
-
 ```
 
 ## OUTPUT:
-<img width="1284" height="374" alt="image" src="https://github.com/user-attachments/assets/ea1d8e4c-e2a0-40dc-ac41-02cd410c4c07" />
+<img width="577" height="285" alt="image" src="https://github.com/user-attachments/assets/e1148027-987e-4477-a256-da7386dad2c1" />
 
 ## RESULT:
-The program successfully creates and sends the appropriate type of notification using the Factory Pattern.
+The program successfully demonstrates how invoking a method on a null `Integer` object triggers a `NullPointerException`, and shows how the exception can be caught and handled gracefully by printing `"Null Integer"`.
+
+
+
+
 
 
