@@ -36,15 +36,15 @@ To simulate a radar control system where only one tower instance handles multipl
 
 ## PROGRAM:
  ```
-/*
+
 Program to implement a SOLID Principles in Java Program
 Developed by: ALLEN JOVETH P
-RegisterNumber:  212223240007
-*/
+RegisterNumber: 212223240007
+
 ```
 
 ## SOURCE CODE:
-```
+```java
 import java.util.*;
 
 class RadarControlTower {
@@ -70,7 +70,7 @@ public class prog {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        sc.nextLine();  // consume newline
+        sc.nextLine(); 
 
         for (int i = 0; i < n; i++) {
             String flight = sc.nextLine();
@@ -90,3 +90,11 @@ public class prog {
 
 ## RESULT:
 The program ensures only one Radar Control Tower instance handles all flight communications and correctly displays the total number of registered flights.
+
+
+
+
+
+
+
+
